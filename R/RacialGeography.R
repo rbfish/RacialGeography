@@ -23,7 +23,7 @@ head(aa_pop_race)
 (sum(aa_pop_race$Black)/sum(aa_pop_race$summary_value))*100
 
 # Read in County Boundary shapefile
-aaCounty <- st_read(dsn = '/GIS/Data/AACounty.shp')
+aaCounty <- st_read(dsn = '/RStats/RacialGeography/Data/AACounty.shp')
 
 # Reproject census block data to match county boundary projection
 aa_pop_raceProj <- st_transform(aa_pop_race, crs = st_crs(aaCounty, asText = TRUE))
