@@ -6,6 +6,10 @@ library(tigris)
 library(sf)
 
 
+# If you need to overwrite an existing key:
+census_api_key("a645472a3fc238e4bd8f2a5cd8495670e337f87f", overwrite = TRUE, install = TRUE)
+# First time, relead your environment so you can use the key without restarting R.
+readRenviron("~/.Renviron")
 # Check Census API Key
 Sys.getenv("CENSUS_API_KEY")
 
@@ -14,7 +18,7 @@ Sys.getenv("CENSUS_API_KEY")
 racevars <- c(White = "P005003", Black = "P005004", Asian = "P005006", Hispanic = "P004003")
 
 # Import 2010 census block population data by race using generated list of race varialbes and census.gov API
-aa_pop_race <- get_decennial(geography = "block", variables = racevars, state = "MD", county = "Anne Arundel County", output = "wide", geometry = TRUE, summary_var = "P001001")
+aa_pop_race2010 <- get_decennial(geography = "block", variables = racevars, state = "MD", county = "Anne Arundel County", output = "wide", geometry = TRUE, summary_var = "P001001")
 
 # Check data
 head(aa_pop_race)
